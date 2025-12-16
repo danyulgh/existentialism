@@ -24,4 +24,5 @@ body {
   z-index: 9999;
   pointer-events: none; /* set to "auto" to block interactions */
   mix-blend-mode: multiply;
+  transition: background-color 300ms ease, opacity 300ms ease;
 }

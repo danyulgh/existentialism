@@ -1,4 +1,34 @@
+'use client';
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const colors = [
+  'orange-500/60',
+  'blue-500',
+  'red-500/60',
+  'green-500/60',
+  'purple-500',
+  'pink-500/30',
+  'yellow-500',
+  'zinc-500',
+  'white'
+]
+
+function Filter() {
+  const [color, setColor] = useState(() => 
+    colors[Math.floor(Math.random() * colors.length)]
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const random = colors[Math.floor(Math.random() * colors.length)] 
+      console.log(random)
+      setColor(random) 
+    }, 30000)
+    return () => clearInterval(interval);
+  },[])
+
+  return <div className={`page-filter bg-${color}`}/>;
+}
 
 export default function Home() {
   return (
@@ -48,7 +78,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <div className="page-filter"/>
+      <Filter />
     </div>
   );
 }
