@@ -1,7 +1,12 @@
 'use client';
 import { motion } from "motion/react";
 import Image from "next/image";
-import { use, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { GiLightningTree } from "react-icons/gi";
+import { GiPalmTree } from "react-icons/gi";
+import { GiWillowTree } from "react-icons/gi";
+import { GiBirchTrees } from "react-icons/gi";
+import { GiBurningTree } from "react-icons/gi";
 
 const colors = [
   'bg-orange-500/60',
@@ -47,6 +52,17 @@ export default function Home() {
     );
   }
 
+  const bellSound = new Audio("/bell.mp3");
+  const crumpleSound = new Audio("/crumple.mp3");
+
+  const startBell = () => {
+    bellSound.play();
+  }
+
+  const startCrumple = () => {
+    crumpleSound.play();
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center font-sans">
       {modal && (
@@ -57,11 +73,15 @@ export default function Home() {
             exit={{opacity:0}}
             transition={{duration:0.3}}
             className="fixed z-50 bg-white/20 backdrop-blur-md bg-opacity-25 left-0 right-0 top-0 bottom-0 flex justify-center items-center"
-            onClick={closeModal}
+            onClick={() => {
+              closeModal()
+              startCrumple()
+            }}
           >
-            <div className="w-[80vw] lg:w-[40vw] h-[90vh] z-50 bg-white bg-opacity-25 flex justify-center items-center"
+            <div className="w-[80vw] lg:w-[40vw] h-[90vh] z-50 bg-white bg-opacity-25 flex p-4"
               onClick={(e) => e.stopPropagation()}
             >
+              <p className="text-black text-4xl font-mono">Color!</p>
               <div className="absolute z-50 bottom-0 right-0 lg:right-[25vw]">
                 <Image
                   src="/crayola.png"
@@ -134,6 +154,7 @@ export default function Home() {
               onClick={() => {
                 goEscape()
                 setColor('bg-black')
+                startBell()
                 window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
               }}
             />
