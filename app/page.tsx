@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans ">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-black sm:items-start">
-        <div className = "flex justify-center items-end h-[70vh] bg-black w-full z-10">
+    <div className="flex min-h-screen items-center justify-center font-sans">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-zinc-950 sm:items-start">
+        <div className = "flex justify-center items-end h-[70vh] bg-zinc-950 w-full z-10">
           <Image
             src="/wait.png"
             alt="wait for the next bell."
@@ -26,10 +26,29 @@ export default function Home() {
               className="object-contain absolute"
               style={{width: 'auto', height:'50vh'}}
             />
-            <div className="size-[25vw] bg-radial from-white via-zinc-800 to-black to-70%"/>
+            <Image
+              src="/papers.png"
+              alt="[here lies papers]"
+              width={0}
+              height={0}
+              sizes="100vh"
+              className="object-contain absolute -mt-[20vh]"
+              style={{width: 'auto', height:'20vh'}}
+            />
+            <Image
+              src="/crayons.png"
+              alt="[here lies papers]"
+              width={0}
+              height={0}
+              sizes="10vh"
+              className="object-contain absolute -mt-[20vh] -rotate-12 ml-[21vh]"
+              style={{width: 'auto', height:'10vh'}}
+            />
+            <div className="size-[25vw] bg-radial from-white via-zinc-500 to-zinc-950 to-70%"/>
           </div>
         </div>
       </main>
+      <div className="page-filter"/>
     </div>
   );
 }
