@@ -94,7 +94,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
             >
               <p className="text-black text-4xl font-mono p-4">Color!</p>
-              <div className="w-full h-full grid grid-cols-3 gap-4 p-4">
+              <div className="w-full grid grid-cols-3 gap-4 p-4">
                 <ColorCycleIcon
                   icon={<GiLightningTree  size={200}/>}
                   colors={cyclecolors}
