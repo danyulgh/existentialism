@@ -36,6 +36,8 @@ export default function Home() {
   const [modal, setModal] = useState(false);
   const [escape, setEscape] = useState(false);
   const [color, setColor] = useState('white');
+  const [bellSound] = useState(typeof Audio !== "undefined" && new Audio("/bell.mp3"));
+  const [crumpleSound] = useState(typeof Audio !== "undefined" && new Audio("/crumple.mp3"));
 
   const goEscape = () => setEscape(true);
   const openModal = () => setModal(true);
@@ -63,14 +65,13 @@ export default function Home() {
     );
   }
 
-  const bellSound = new Audio("/bell.mp3");
-  const crumpleSound = new Audio("/crumple.mp3");
-
   const startBell = () => {
+  if (bellSound)
     bellSound.play();
   }
 
   const startCrumple = () => {
+  if (crumpleSound)
     crumpleSound.play();
   }
 
