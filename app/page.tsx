@@ -1,12 +1,14 @@
 'use client';
+import ColorCycleIcon from "@/components/ColorCycleIcon";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { GiLightningTree } from "react-icons/gi";
 import { GiPalmTree } from "react-icons/gi";
 import { GiWillowTree } from "react-icons/gi";
 import { GiBirchTrees } from "react-icons/gi";
 import { GiBurningTree } from "react-icons/gi";
+import { GiEvilTree } from "react-icons/gi";
 
 const colors = [
   'bg-orange-500/60',
@@ -19,7 +21,16 @@ const colors = [
   'bg-zinc-500/80',
 ]
 
-
+const cyclecolors = [
+  '#000000',
+  '#3d251e',
+  '#b22222',
+  '#ffa500',
+  '#ffff00',
+  '#008000',
+  '#0000ff',
+  '#800080',
+]
 
 export default function Home() {
   const [modal, setModal] = useState(false);
@@ -78,10 +89,36 @@ export default function Home() {
               startCrumple()
             }}
           >
-            <div className="w-[80vw] lg:w-[40vw] h-[90vh] z-50 bg-white bg-opacity-25 flex p-4"
+            <div className=" h-[90vh] z-50 bg-white bg-opacity-25"
               onClick={(e) => e.stopPropagation()}
             >
-              <p className="text-black text-4xl font-mono">Color!</p>
+              <p className="text-black text-4xl font-mono p-4">Color!</p>
+              <div className="w-full h-full grid grid-cols-3 gap-4 p-4">
+                <ColorCycleIcon
+                  icon={<GiLightningTree  size={200}/>}
+                  colors={cyclecolors}
+                />
+                <ColorCycleIcon
+                  icon={<GiPalmTree  size={200}/>}
+                  colors={cyclecolors}
+                />
+                <ColorCycleIcon
+                  icon={<GiWillowTree  size={200}/>}
+                  colors={cyclecolors}
+                />
+                <ColorCycleIcon
+                  icon={<GiBirchTrees size={200}/>}
+                  colors={cyclecolors}
+                />
+                <ColorCycleIcon
+                  icon={<GiBurningTree  size={200}/>}
+                  colors={cyclecolors}
+                />
+                <ColorCycleIcon
+                  icon={<GiEvilTree  size={200}/>}
+                  colors={cyclecolors}
+                />
+              </div>
               <div className="absolute z-50 bottom-0 right-0 lg:right-[25vw]">
                 <Image
                   src="/crayola.png"
